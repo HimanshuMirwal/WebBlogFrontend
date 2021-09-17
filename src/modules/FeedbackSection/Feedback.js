@@ -68,11 +68,11 @@ export default class Feedback extends Component {
                         <hr></hr>
                         <div className="form-group FeedbackMArgin">
                             <label className="FeedbackLabel">Your Name</label>
-                            <input type="email" onChange={(e) => this.ValueOfName(e)} name="EmailFeedback" className="form-control" style={{ width: "50%" }} placeholder="name@example.com" value={this.state.NameTextBox} />
+                            <input type="email" onChange={(e) => this.ValueOfName(e)} name="EmailFeedback" className="form-control FeedbackText"  placeholder="name@example.com" value={this.state.NameTextBox} />
                         </div>
                         <div className="form-group FeedbackMArgin">
                             <label className="FeedbackLabel">Your E-mail</label>
-                            <input type="email" onChange={(e) => this.ValueOfEmail(e)} name="EmailFeedback" className="form-control" style={{ width: "50%" }} placeholder="name@example.com" value={this.state.TextBox} />
+                            <input type="email" onChange={(e) => this.ValueOfEmail(e)} name="EmailFeedback" className="form-control FeedbackText" placeholder="name@example.com" value={this.state.TextBox} />
                         </div>
                         <div className="form-group FeedbackMArgin">
                             <label className="FeedbackLabel">Your feedback</label>
