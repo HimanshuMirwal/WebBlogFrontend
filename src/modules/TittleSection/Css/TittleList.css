@@ -182,8 +182,11 @@
   .ListDiv{
     padding-top:"10%";
     overflow-y: scroll;
-    width: 85%;
+    width: 75%;
     float: right;
+  }
+  .ButtonDiv{
+    width: 20%;
   }
 }
   ::-webkit-scrollbar {
