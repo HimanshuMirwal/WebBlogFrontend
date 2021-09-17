@@ -146,18 +146,18 @@
 @media screen and (max-width: 400px) {
   .ListDiv a:not(:first-child){
     display: none;
-    width: 33%;
+    width: 48%;
   }
   .ListDiv a:nth-child(2){
     display: block;
-    width: 33%;
+    width: 48%;
   }
   .ButtonDiv .icon {
     float: left;
     display: block;
     color: #fff;
     background-color: #6A9C78;
-    border: 2px solid #fff;
+    border: 1px solid #fff;
   }
   .ButtonDiv{
     overflow: hidden;
