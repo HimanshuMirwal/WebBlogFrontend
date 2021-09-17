@@ -68,9 +68,6 @@ class App extends React.Component {
                                     </Link>
                         })
                     }
-                    <a href="#news" className="ALinks">News</a>
-                    <a href="#contact" className="ALinks">Contact</a>
-                    <a href="#about" className="ALinks">About</a>
                     </div>
                 </div>
             </div>
