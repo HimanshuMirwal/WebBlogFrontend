@@ -143,6 +143,29 @@
     overflow-y: hidden;
   }
 }
+@media screen and (max-width: 400px) {
+  .ListDiv a:not(:first-child){
+    display: none;
+    width: 33%;
+  }
+  .ListDiv a:nth-child(2){
+    display: block;
+    width: 33%;
+  }
+  .ButtonDiv .icon {
+    float: left;
+    display: block;
+    color: #fff;
+    background-color: #6A9C78;
+    border: 2px solid #fff;
+  }
+  .ButtonDiv{
+    overflow: hidden;
+  }
+  .ListDiv{
+    overflow-y: hidden;
+  }
+}
 .ButtonDiv .icon {
   float: left;
   display: block;
