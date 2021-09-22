@@ -1,24 +1,52 @@
-.mainSidebar{
-    min-height: 700px;
-    height: 100%;
-    width: 25%;
-    /* border: 1px solid green; */
-    float: right;
-    background-color: #6A9C78;
-    color:  #F9F8ED;
-    font-size: 20px;
+.MainSideBar{
+    min-height: 100px;
+    height:auto;
+    background:#F9F8ED ;
+    overflow:"hidden";
+    /* border-bottom:1px solid #6A9C78; */
+    border-top:1px solid #C4E3CB;
+    width: 100%;
 }
-.UlSidebar{
-    list-style: none;
-    padding: 0;
+.ListItem{
+    padding: 0 10px;
+    font-weight: bold;
+    line-height: 50px;
+    color:#333;
+    float: left;
+    width: 10%;
 }
-.LiSidebar{
-    padding: 1% 5%;
+
+@media (max-width : 600px){
+    .ListItem{
+        padding: 0 10px;
+        font-weight: bold;
+        line-height: 50px;
+        color:#333;
+        float: left;
+        width: 50%;
+    }
 }
 .LinkSidebar{
     text-decoration: none;
-    color:  #F9F8ED;
+    color:  #6A9C78;
 }
-.LinkSidebar:hover{
+.TrendingTopics{
+    width:100%;
+    height:auto;
+    background: linear-gradient(30deg, #6A9C78, #6A9C78 50%, #c4e3cb00 5%, #c4e3cb00 5%, #c4e3cb00 5%);
     color: #C4E3CB;
+    padding: 0 5%;
+    border-bottom: 2px solid #6A9C78;
+}
+.UList{
+    list-style-type:none;
+    width: 100%;
+    overflow: scroll;
+    padding: 0;
+}
+.UListDiv{
+    padding: 0 5%;
+}
+::-webkit-scrollbar{
+    height: 0;
 }

@@ -21,8 +21,8 @@ export default class Content extends Component {
         return (
             <>
                 <div className="mainDiv">
-                   <Sidebar  TitleValue={this.props.SendTitleValueFunction} HeightValueOfInformationDiv={this.state.HeightInformationDiv} />     
                    <Information  TitleValue={this.props.SendTitleValueFunction} SendSubTitleValue={this.props.SendSubTitleValue} heigthFunction={this.SetHeightInformationDiv}/>
+                   <Sidebar  TitleValue={this.props.SendTitleValueFunction} HeightValueOfInformationDiv={this.state.HeightInformationDiv} />     
                 </div>
             </>
         )

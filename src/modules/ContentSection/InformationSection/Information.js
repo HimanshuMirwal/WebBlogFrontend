@@ -58,7 +58,7 @@ export default class Information extends Component {
                                     <div className="card-body">
                                         <h2 className="card-title InformationHeading" >{value.PlaceForTour}</h2>
                                         <hr></hr>
-                                        <img  style={{height:"100%"}} className="col-12" src={value.imageLinksArray[0]} height="100px" width="100px"/>
+                                        <img   className="col-12 image" src={value.imageLinksArray[0]} alt={value.PlaceForTour}/>
                                         <hr></hr>
                                         <div  className="col-lg-12">
                                         <h4 className="card-subtitle mb-2 text-muted">{value.city}</h4>

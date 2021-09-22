@@ -9,8 +9,8 @@ class App extends React.Component {
         this.state = {
             DataList: [],
             TitleValue: null,
-            dataSubTitle: null,
-            toggle : false
+            dataSubTitle: [],
+            toggle: false
         };
         this.myFunction = this.myFunction.bind(this);
     }
@@ -36,47 +36,50 @@ class App extends React.Component {
     };
 
     myFunction() {
-        (this.state.toggle)?this.setState({toggle:false}):this.setState({toggle:true});
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-          x.className += " responsive";
-        } else {
-          x.className = "topnav";
-        }
-      }
+        (this.state.toggle) ? this.setState({ toggle: false }) : this.setState({ toggle: true });
+    }
     render() {
         return (
             <div className="mainTittleCss" >
-                <div class="topnav" id="myTopnav">
-                    <div className="ButtonDiv">
-                    <abbr title="Click here for more subjects.">
-                    <button className="icon" onClick={()=>this.myFunction()}>
-                        {(this.state.toggle)?<i className="fa 2x fa-caret-up "  aria-hidden="true"></i>:<i className="fa fa-caret-down" aria-hidden="true"></i>}
+                <nav class="navbar navbar-expand-lg">
+                    <button onClick={() => this.myFunction()} class="navbar-toggler BottonToggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        {(this.state.toggle) ? <i className="fa 2x fa-caret-up " aria-hidden="true"></i> : <i className="fa fa-caret-down" aria-hidden="true"></i>}
                     </button>
-                    </abbr>
-                    </div>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            {
+                                this.state.DataList.map((data) => {
+                                    return <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle TittleLink" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {data.TittleName}
+                                        </a>
+                                        <div class="dropdown-menu DropDownMenu" aria-labelledby="navbarDropdown">
+                                            {
+                                                this.state.dataSubTitle.map(subtittle => {
+                                                    if (subtittle.TittleName === data.TittleName) {
+                                                        return (<Link to={{
+                                                            pathname: "/subtitle/" + subtittle.TittleName + "/" + subtittle.subtittleName,
+                                                            TitleValue: subtittle.TittleName,
+                                                            SubTittleValue: subtittle.subtittleName
+                                                        }}
+                                                            className="dropdown-item dropDownItem"
+                                                        >{subtittle.subtittleName}
+                                                        </Link>)
+                                                    }
+                                                })
+                                            }
+                                        </div>
+                                    </li>
 
-                    <div className="ListDiv">
-
-                    {/* <a href="#home" className="">Home</a> */}
-                    {
-                        this.state.DataList.map((data) => {
-                            return <Link  
-                                        to={{pathname:"/title/"+data.TittleName,TitleValue:data.TittleName}} 
-                                        className="ALinks">
-                                        {data.TittleName}
-                                    </Link>
-                        })
-                    }
+                                })
+                            }
+                        </ul>
                     </div>
-                </div>
+                </nav>
             </div>
         );
     }
 }
 
-{/* <li key={data.TittleName} style={{width:"30%"}} className="nav-item nav-link" onClick={() => this.GetTitleValue(data.TittleName)}>
-                                            <b>{data.TittleName}</b>
-                                        </li> */}
 
 export default App;

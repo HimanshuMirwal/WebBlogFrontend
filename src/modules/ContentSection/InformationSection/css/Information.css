@@ -1,11 +1,19 @@
 .mainInformation{
     min-height: 700px;
     height: 100%;
-    width: 75%;
+    width: 70%;
     /* border: 1px solid green; */
-    float: left;
     background-color:#F9F8ED ;
     padding: 0 5%;
+    margin: auto;
+}
+@media (max-width : 600px) {
+    .mainInformation{
+        width: 90%;
+    }
+}
+.image{
+    width:100%
 }
 .paragraphInformation{
     color: #333;

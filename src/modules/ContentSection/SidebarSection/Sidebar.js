@@ -6,46 +6,54 @@ export default class Sidebar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dataSubTitle: []
-        }        
+            dataNotice: [],
+            display: true
+        }
+        this.OnClickSideDisplay = this.OnClickSideDisplay.bind(this);
     }
     componentDidMount(props) {
-        Axios.get("https://obscure-lake-21900.herokuapp.com/subtittle/getsubtitle/")
+        Axios.get("https://obscure-lake-21900.herokuapp.com/notice/getnotice/")
             .then((res) => {
-                console.log(res)
+                console.log(res.data)
                 this.setState({
-                    dataSubTitle: res.data
+                    dataNotice: res.data
                 })
             })
             .catch(Err => console.log(Err));
     }
+    OnClickSideDisplay() {
+        const data = document.getElementById("Sidebar");
+        if (this.state.display) {
+            data.className = "mainSidebar"
+            data.style.height = "700px"
+
+
+        } else {
+            data.className = "mainSidebarDisplay"
+            data.style.height = "0"
+        }
+        this.state.display ? this.setState({
+            display: false
+        }) : this.setState({
+            display: true
+        })
+    }
     render() {
         return (
             <>
-                <div className="mainSidebar" style={{ height: this.props.HeightValueOfInformationDiv }}>
-                    <ul className="UlSidebar">
-                        <li className="LiSidebar">{ }</li>
+                <div className="MainSideBar">
+                    <div className="TrendingTopics">
+                        <h2>Latest Updates</h2>
+                    </div>
+                    <div className="UListDiv">
+                        <ul className="UList">
                         {
-                            this.state.dataSubTitle.map((value) => {
-                                if (value.TittleName === this.props.TitleValue) {
-                                    return <div key={value._id + value.subtittleName}>
-                                        <li  className="LiSidebar">
-                                            <Link to={{
-                                                    pathname:"/subtitle/"+value.TittleName+"/"+value.subtittleName,
-                                                    TitleValue:value.TittleName,
-                                                    SubTittleValue:value.subtittleName
-                                                    }} 
-                                                    className="LinkSidebar"  
-                                                    >
-                                                    {value.subtittleName}
-                                            </Link>
-                                        </li>
-                                        <hr />
-                                    </div>
-                                }
+                            this.state.dataNotice.map(data=>{
+                                return <Link to={data.NoticeLink}><li className="ListItem">{data.Notice}</li></Link>
                             })
                         }
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
             </>
         )
