@@ -45,8 +45,17 @@
 .dot{
     padding: 0.6%
 }
-
-
+.image{
+    height:500px;
+}
+@media (max-width : 600px) {
+    .carousel .slide img {
+        width: 100%;
+        vertical-align: top;
+        border: 0;
+        height: 300px;
+    }
+}
 .descriptionParagraph h1 {
     color: #6A9C78;
 }

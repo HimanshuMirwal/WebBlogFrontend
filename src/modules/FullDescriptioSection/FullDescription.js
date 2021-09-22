@@ -62,7 +62,7 @@ export default class FullDescription extends Component {
                         <Carousel autoPlay infiniteLoop interval="3000">
                             {
                                  this.state.Data.LinksName.map((user) => {
-                                    return  <div key={user}><img height="500px" width="100%" src={user} /> </div>
+                                    return  <div key={user}><img className="image"  src={user} /> </div>
                             })
                             }
                         </Carousel>
