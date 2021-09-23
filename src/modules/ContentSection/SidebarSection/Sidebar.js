@@ -52,7 +52,6 @@ export default class Sidebar extends Component {
                                 return <Link to={data.NoticeLink}><li className="ListItem">{data.Notice}</li></Link>
                             })
                         }
-                        <li className="ListItem">"knkjwn"</li>
                         </ul>
                     </div>
                 </div>
