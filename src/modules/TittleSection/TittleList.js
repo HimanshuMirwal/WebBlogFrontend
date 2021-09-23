@@ -2,7 +2,7 @@ import React from 'react';
 import "./Css/TittleList.css";
 import Axios from "axios";
 import { Link } from 'react-router-dom';
-
+import SearchBar from "./SearchBar";
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -41,7 +41,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="mainTittleCss" >
-                <nav class="navbar navbar-expand-lg">
+                <nav class="navbar navbar-expand-lg CustomNavWidth">
                     <button onClick={() => this.myFunction()} class="navbar-toggler BottonToggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         {(this.state.toggle) ? <i className="fa 2x fa-caret-up " aria-hidden="true"></i> : <i className="fa fa-caret-down" aria-hidden="true"></i>}
                     </button>
@@ -76,6 +76,7 @@ class App extends React.Component {
                         </ul>
                     </div>
                 </nav>
+                {/* <SearchBar/> */}
             </div>
         );
     }

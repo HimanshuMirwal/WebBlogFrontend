@@ -1,20 +1,26 @@
 .mainInformation{
     min-height: 700px;
-    height: 100%;
-    width: 70%;
-    /* border: 1px solid green; */
+    height: auto;
+    width: 75%;
     background-color:#F9F8ED ;
     padding: 0 5%;
-    margin: auto;
-}
-@media (max-width : 600px) {
-    .mainInformation{
-        width: 90%;
-    }
+    float: left;
 }
 .imageInfo{
     width:100%;
     height:400px;
+}
+
+@media (max-width : 600px) {
+    .mainInformation{
+        width: 90%;
+        margin: auto;
+        float: none;
+    }
+    .imageInfo{
+        width:100%;
+        height:300px;
+    }
 }
 
 .paragraphInformation{

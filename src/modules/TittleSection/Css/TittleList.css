@@ -3,8 +3,19 @@
   padding: 2% 5%;
   /* max-height: 500px; */
   /* overflow-y: scroll; */
+  overflow: hidden;
 }
-
+.SearchbarDiv{
+  height: auto;
+  width: 25%;
+  padding: 1%;
+  /* border: 2px solid red; */
+  float: right;
+}
+.CustomNavWidth{
+  width: 100%;
+  float: left;
+}
 .TittleLink{
   text-decoration: none;
   color: #F9F8ED;
@@ -19,8 +30,8 @@
   padding: 10px;
 }
 .BottonToggle{
-  color: #fff;
-  border: 1px solid #fff;
+  color: #F9F8ED;
+  border: 1px solid #F9F8ED;
   padding: 10px 20px;
 }
 .dropDownItem{
@@ -32,6 +43,17 @@
   background: #6A9C78;
   color: #C4E3CB;
   text-decoration: 2px underline #C4E3CB;
+}
+
+@media (max-width : 600px){
+  .CustomNavWidth{
+    width: 100%;
+  }
+  .SearchbarDiv{
+    height: auto;
+    width: 100%;
+    padding: 2% 1%;
+  }
 }
   ::-webkit-scrollbar {
     width: 1px;

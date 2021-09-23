@@ -3,9 +3,10 @@
     height:auto;
     background:#F9F8ED ;
     overflow:"hidden";
-    /* border-bottom:1px solid #6A9C78; */
-    border-top:1px solid #C4E3CB;
-    width: 100%;
+    /* border:1px solid red; */
+    /* border-to p:1px solid #C4E3CB; */
+    width: 25%;
+    float: right;
 }
 .ListItem{
     padding: 0 10px;
@@ -13,19 +14,10 @@
     line-height: 50px;
     color:#333;
     float: left;
-    width: 10%;
+    width: 100%;
+    border-bottom:2px solid #6A9C78 ;
 }
 
-@media (max-width : 600px){
-    .ListItem{
-        padding: 0 10px;
-        font-weight: bold;
-        line-height: 50px;
-        color:#333;
-        float: left;
-        width: 50%;
-    }
-}
 .LinkSidebar{
     text-decoration: none;
     color:  #6A9C78;
@@ -42,11 +34,37 @@
 .UList{
     list-style-type:none;
     width: 100%;
-    overflow: scroll;
-    padding: 0;
+    padding: 1% 0;
 }
 .UListDiv{
-    padding: 0 5%;
+    padding: 0;
+    overflow: scroll;
+}
+
+@media (max-width : 600px){
+    .ListItem{
+        padding: 0 10px;
+        font-weight: bold;
+        line-height: 50px;
+        color:#333;
+        float: left;
+        width: 50%;
+        border-bottom: none;
+    }
+    .MainSideBar{
+        min-height: 100px;
+        height:auto;
+        background:#F9F8ED ;
+        overflow:"hidden";
+        border-top:1px solid #C4E3CB;
+        width: 100%;
+        float: none;
+    }
+    .UList{
+        list-style-type:none;
+        width: 100%;
+        padding: 1% 5%;
+    }
 }
 ::-webkit-scrollbar{
     height: 0;

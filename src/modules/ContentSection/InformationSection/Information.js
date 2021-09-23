@@ -58,7 +58,7 @@ export default class Information extends Component {
                                     <div className="card-body">
                                         <h2 className="card-title InformationHeading" >{value.PlaceForTour}</h2>
                                         <hr></hr>
-                                        <img   className="col-12 imageInfo" src={value.imageLinksArray[0]} alt={value.PlaceForTour}/>
+                                        <img   className="imageInfo" src={value.imageLinksArray[0]} alt={value.PlaceForTour}/>
                                         <hr></hr>
                                         <div  className="col-lg-12">
                                         <h4 className="card-subtitle mb-2 text-muted">{value.city}</h4>
