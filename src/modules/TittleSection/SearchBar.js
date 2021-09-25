@@ -1,52 +1,81 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Css/TittleList.css";
 import Axios from "axios";
 import { Link } from 'react-router-dom';
-
-class SearchBar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            DataList: [],
-            TitleValue: null,
-            dataSubTitle: [],
-            toggle: false
-        };
-        this.myFunction = this.myFunction.bind(this);
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+const App = () => {
+  
+    const [myOptions, setMyOptions] = useState([])
+    const [FullData, SetFullData] = useState([]);
+    let uniqueChars ;
+    const getDataFromAPI = (e) => {
+      const data = e.target.value;
+      console.log("Options Fetched from API")
+      Axios.get('https://obscure-lake-21900.herokuapp.com/place/getplace/')
+      .then((res) => {
+          console.log(res.data)
+          SetFullData(res.data);
+        for (let i = 0; i < res.data.length; i++) {
+          myOptions.push(res.data[i].PlaceForTour)
+          myOptions.push(res.data[i].subtittleName)
+          uniqueChars = [...new Set(myOptions)];
+        }
+        setMyOptions(uniqueChars);
+      })
     }
-    componentDidMount(props) {
-        Axios.get("https://obscure-lake-21900.herokuapp.com/tittle/gettitle/")
-            .then(
-                (result) => {
-                    this.setState({
-                        DataList: result.data
-                    });
-                },
-                (error) => {
-                    console.log(error);
-                }
-            )
-        Axios.get("https://obscure-lake-21900.herokuapp.com/subtittle/getsubtitle/")
-            .then((res) => {
-                // console.log(res)
-                this.setState({
-                    dataSubTitle: res.data
-                })
-            }).catch(Err => console.log(Err));
-    };
+    function searchClicked() {
+      let x = document.getElementById("myPassword").value;
+      console.log(x);
+      console.log(FullData);
+      const PlaceArray =  FullData.map(data=>data.PlaceForTour);
+      const subtittleArray =  FullData.map(data=>data.subtittleName);
 
-    myFunction() {
-        alert("Clicked")
+      console.log(FullData)
+      if(PlaceArray.includes(x)){
+        FullData.map(data=>{
+          if(data.PlaceForTour === x){
+            window.location.href="/description:"+data._id
+          } 
+        })
+      }else if(subtittleArray.includes(x)){
+        FullData.map(data=>{
+          if(data.subtittleName === x){
+            window.location.href="/subtitle/"+data.TittleName+"/"+data.subtittleName
+          } 
+        })
+      }
+      else{
+        alert("not found.")
+      }
     }
-    render() {
-        return (
-                <div className="SearchbarDiv">
-                <input className="form-control" style={{width:"85%", float:"left"}} type="text"></input>
-                <i onClick={()=>this.myFunction()} style={{float:"right", fontSize:"40px", color:"#F9F8ED"}} class="fa 7x fa-search"></i>
-                </div>
-        );
-    }
-}
+    
+    return (
+      <div className="SearchbarDiv">
+        <Autocomplete
+          freeSolo
+          autoComplete
+          autoHighlight
+          options={myOptions}
+          id="myPassword"
 
-
-export default SearchBar;
+          renderInput={(params) => (
+            <>
+            <div style={{width:"90%", float:"left"}}>
+            <TextField {...params}
+              onChange={(e)=>getDataFromAPI(e)}
+              label="Search Box"
+              className="TextAreaSearch"
+              id="myPassword"
+            />
+            </div>
+            <i className="fa fa-search search-icon" onClick={()=>searchClicked()}></i>
+            </>
+          )}
+        />
+      </div>
+    );
+  }
+    
+  export default App
+// export default SearchBar;
