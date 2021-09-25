@@ -56,13 +56,13 @@
   color: #C4E3CB;
   text-decoration: 2px underline #C4E3CB;
 }
-@media (max-width : 900px){
+@media (max-width : 1250px){
   .SearchbarDiv{
     height: auto;
-    width: 100%;
+    width: 40%;
   }
 }
-@media (max-width : 600px){
+@media (max-width : 900px){
   .SearchbarDiv{
     height: auto;
     width: 100%;

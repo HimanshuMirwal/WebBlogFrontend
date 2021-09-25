@@ -45,11 +45,12 @@ class App extends React.Component {
                     <button onClick={() => this.myFunction()} class="navbar-toggler BottonToggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         {(this.state.toggle) ? <i className="fa 2x fa-caret-up " aria-hidden="true"></i> : <i className="fa fa-caret-down" aria-hidden="true"></i>}
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
+                    <div class="collapse navbar-collapse" style={{width:"75%",overflowX:"scroll"}} id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
                             {
                                 this.state.DataList.map((data) => {
-                                    return <li class="nav-item dropdown">
+                                    return (<>
+                                        <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle TittleLink" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             {data.TittleName}
                                         </a>
@@ -70,6 +71,92 @@ class App extends React.Component {
                                             }
                                         </div>
                                     </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle TittleLink" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {data.TittleName}
+                                        </a>
+                                        <div class="dropdown-menu DropDownMenu" aria-labelledby="navbarDropdown">
+                                            {
+                                                this.state.dataSubTitle.map(subtittle => {
+                                                    if (subtittle.TittleName === data.TittleName) {
+                                                        return (<Link to={{
+                                                            pathname: "/subtitle/" + subtittle.TittleName + "/" + subtittle.subtittleName,
+                                                            TitleValue: subtittle.TittleName,
+                                                            SubTittleValue: subtittle.subtittleName
+                                                        }}
+                                                            className="dropdown-item dropDownItem"
+                                                        >{subtittle.subtittleName}
+                                                        </Link>)
+                                                    }
+                                                })
+                                            }
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle TittleLink" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {data.TittleName}
+                                        </a>
+                                        <div class="dropdown-menu DropDownMenu" aria-labelledby="navbarDropdown">
+                                            {
+                                                this.state.dataSubTitle.map(subtittle => {
+                                                    if (subtittle.TittleName === data.TittleName) {
+                                                        return (<Link to={{
+                                                            pathname: "/subtitle/" + subtittle.TittleName + "/" + subtittle.subtittleName,
+                                                            TitleValue: subtittle.TittleName,
+                                                            SubTittleValue: subtittle.subtittleName
+                                                        }}
+                                                            className="dropdown-item dropDownItem"
+                                                        >{subtittle.subtittleName}
+                                                        </Link>)
+                                                    }
+                                                })
+                                            }
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle TittleLink" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {data.TittleName}
+                                        </a>
+                                        <div class="dropdown-menu DropDownMenu" aria-labelledby="navbarDropdown">
+                                            {
+                                                this.state.dataSubTitle.map(subtittle => {
+                                                    if (subtittle.TittleName === data.TittleName) {
+                                                        return (<Link to={{
+                                                            pathname: "/subtitle/" + subtittle.TittleName + "/" + subtittle.subtittleName,
+                                                            TitleValue: subtittle.TittleName,
+                                                            SubTittleValue: subtittle.subtittleName
+                                                        }}
+                                                            className="dropdown-item dropDownItem"
+                                                        >{subtittle.subtittleName}
+                                                        </Link>)
+                                                    }
+                                                })
+                                            }
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle TittleLink" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {data.TittleName}
+                                        </a>
+                                        <div class="dropdown-menu DropDownMenu" aria-labelledby="navbarDropdown">
+                                            {
+                                                this.state.dataSubTitle.map(subtittle => {
+                                                    if (subtittle.TittleName === data.TittleName) {
+                                                        return (<Link to={{
+                                                            pathname: "/subtitle/" + subtittle.TittleName + "/" + subtittle.subtittleName,
+                                                            TitleValue: subtittle.TittleName,
+                                                            SubTittleValue: subtittle.subtittleName
+                                                        }}
+                                                            className="dropdown-item dropDownItem"
+                                                        >{subtittle.subtittleName}
+                                                        </Link>)
+                                                    }
+                                                })
+                                            }
+                                        </div>
+                                    </li>
+
+                                    </>)
 
                                 })
                             }

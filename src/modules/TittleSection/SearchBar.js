@@ -11,7 +11,7 @@ const App = () => {
     let uniqueChars ;
     const getDataFromAPI = (e) => {
       const data = e.target.value;
-      console.log("Options Fetched from API")
+      console.log(String.fromCharCode(e.which)); 
       Axios.get('https://obscure-lake-21900.herokuapp.com/place/getplace/')
       .then((res) => {
           console.log(res.data)
@@ -49,6 +49,12 @@ const App = () => {
         alert("not found.")
       }
     }
+    function myKeyPress(e){
+      if(e.key === "Enter"){
+        searchClicked();
+      }
+      
+    }
     
     return (
       <div className="SearchbarDiv">
@@ -67,6 +73,7 @@ const App = () => {
               label="Search Box"
               className="TextAreaSearch"
               id="myPassword"
+              onKeyDown={(e)=>myKeyPress(e)}
             />
             </div>
             <i className="fa fa-search search-icon" onClick={()=>searchClicked()}></i>
