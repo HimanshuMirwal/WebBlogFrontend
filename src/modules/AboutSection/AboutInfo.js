@@ -27,7 +27,7 @@ export default class AboutInfo extends React.Component {
         return (
             <div className="container-fluide">
                 <Logo />
-                <div className="row" style={{ padding: "2% 5%" }}>
+                <div className="row" style={{ padding: "2% 5%", margin:0 }}>
                 <h3 className="aboutHeading">About us</h3>
                         <hr className="HrLine" />
                     <div className="ImageusDiv">
