@@ -2,25 +2,6 @@
   height: 100%;
   overflow: hidden;
 }
-.SearchbarDiv{
-  height: auto;
-  width: 25%;
-  /* border: 2px solid red; */
-  float: right;
-}
-.TextAreaSearch{
-  padding: 5% 1%;
-  width: 90%;
-}
-.search-icon{
-  float: right;
-  font-size: 30px;
-  color: rgba(51, 51, 51, 0.726);
-  line-height: 62px;
-}
-.search-icon:hover{
-  color: rgb(0, 0, 0);
-}
 .NavBarCustom{
   background:#6A9C78;
   padding : 2% 5%;
@@ -30,7 +11,7 @@
 .TittleLink{
   text-decoration: none;
   color: #F9F8ED;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1.1rem;
 }
 .TittleLink:hover{
@@ -46,6 +27,10 @@
   border: 1px solid #F9F8ED;
   padding: 10px 20px;
 }
+.FullPage1stLiItem{
+  width: 16.64%;
+  float: left;
+}
 .dropDownItem{
   padding: 2px;
   color: #6A9C78;
@@ -56,16 +41,33 @@
   color: #C4E3CB;
   text-decoration: 2px underline #C4E3CB;
 }
+.ULDisplay{
+  display: none;
+}
+.DisplayFull{
+  display: block;
+}
 @media (max-width : 1250px){
   .SearchbarDiv{
     height: auto;
     width: 40%;
+  }
+  .FullPage1stLiItem{
+    width: 25%;
+    float: left;
   }
 }
 @media (max-width : 900px){
   .SearchbarDiv{
     height: auto;
     width: 100%;
+  }
+  .DisplayFull{
+    display: none;
+  }
+  .ULDisplay{
+    display: block;
+    float: left;
   }
 }
 

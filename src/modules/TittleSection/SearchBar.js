@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./Css/TittleList.css";
+import "./Css/SearchBar.css";
 import Axios from "axios";
 import { Link } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
@@ -67,7 +67,7 @@ const App = () => {
 
           renderInput={(params) => (
             <>
-            <div style={{width:"90%", float:"left"}}>
+            <div className="TextAreaSearchbar">
             <TextField {...params}
               onChange={(e)=>getDataFromAPI(e)}
               label="Search Box"
@@ -76,7 +76,6 @@ const App = () => {
               onKeyDown={(e)=>myKeyPress(e)}
             />
             </div>
-            <i className="fa fa-search search-icon" onClick={()=>searchClicked()}></i>
             </>
           )}
         />
