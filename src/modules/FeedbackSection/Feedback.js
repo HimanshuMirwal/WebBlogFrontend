@@ -36,12 +36,12 @@ export default class Feedback extends Component {
             TextArea: val
         })
     }
-    onClickFunction() {
+    async onClickFunction() {
         const Email = this.state.TextBox;
         const Feedback = this.state.TextArea;
         const Name = this.state.NameTextBox;
         if (Email.length > 4 && Feedback.length > 4 && Name.length>0) {
-            Axios.post("https://obscure-lake-21900.herokuapp.com/feedback/postfeedback/",{Name:this.state.NameTextBox,EmailFeedback:Email,EmailDescription:Feedback})
+            await Axios.post("http://localhost:5000/feedback/postfeedback/",{Name:this.state.NameTextBox,EmailFeedback:Email,EmailDescription:Feedback})
             .then(res=>{
                 document.getElementById("AlertDiv").innerHTML=this.state.Div1
             })

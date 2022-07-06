@@ -3,15 +3,23 @@
     height: auto;
     width: 100%;
     /* border: 1px solid red; */
-    padding: 5%;
 }
 .descriptionHeading{
    color: #6A9C78!important;
-
+    text-align:  start;
 }
 .descriptionParagraph{
     color:#333;
+    width: 90%;
+    display: block;
+    margin: auto;
     text-align: justify;
+    z-index: +1;
+    position: relative;
+    top: -93px;
+    background: white;
+    padding: 2% 5%;
+    border-radius: 10px;
 }
 .descriptionFirstPAragraph{
     color:#333;
@@ -20,13 +28,17 @@
 .myBtn {
     position: fixed;
     bottom: 20px;
-    float: right;
     right: 18.5%;
-    left: 90.25%;
-    max-width: 50px;
+    left: 20px;
     font-size: 12px;
-    padding: 1%;
+    /* padding: 1%; */
+    width: 30px;
+    height: 30px;
     border-radius: 4px;
+    z-index: +10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 /*On Hover Color Change*/
@@ -44,14 +56,16 @@
     padding: 0.6%
 }
 .image{
-    height:500px;
+    height:600px;
+    width: 100%;
+    opacity: 0.5;
 }
 @media (max-width : 600px) {
     .carousel .slide img {
         width: 100%;
         vertical-align: top;
         border: 0;
-        height: 300px;
+        height: 400px;
     }
 }
 .descriptionParagraph h1 {

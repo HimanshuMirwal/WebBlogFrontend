@@ -7,7 +7,7 @@ import Axios from "axios";
 import "./css/FullDescription.css";
 import { Link } from "react-router-dom";
 import parse from 'html-react-parser';
-
+import Spinner from "../Spinner/Spinner";
 export default class FullDescription extends Component {
     constructor(props) {
         super(props);
@@ -18,65 +18,68 @@ export default class FullDescription extends Component {
         }
         this.onClickGotoTop = this.onClickGotoTop.bind(this);
     }
-    componentDidMount(props) {
+    async componentDidMount(props) {
         const len = this.props.match.params.Value.length;
         const fromNotifications = this.props.match.params.Value.substring(1, len);
         console.log(fromNotifications);
-        Axios.get("https://obscure-lake-21900.herokuapp.com/place/getplace/:" + fromNotifications)
-            .then((res) => {
-                this.setState({
-                    Data: {...res.data ,
-                            PlaceTourExplaination:parse(res.data.PlaceTourExplaination),
-                            LinksName:res.data.imageLinksArray.map(data=> { return data})   
-                        },
+        await Axios.get("http://localhost:5000/place/getplace/:" + fromNotifications)
+            .then(async (res) => {
+                await this.setState({
+                    Data: {
+                        ...res.data,
+                        PlaceTourExplaination: parse(res.data.PlaceTourExplaination),
+                        LinksName: res.data.imageLinksArray.map(data => { return data })
+                    },
 
-                    
+
                 })
             })
             .catch(Err => alert(Err));
     }
     onClickGotoTop() {
         document.getElementById("top").scrollIntoView(true)
-        
+
     }
     render() {
         return (
             <>
                 <Logo />
-               
-                <div className="FullDescriptionMain">
-                    <div className="DescriptionContent">
-                        <h2 className="descriptionHeading" id="top">
-                            {this.state.Data.PlaceForTour}
-                        </h2>
-                        <hr></hr>
+                {Object.keys(this.state.Data).length === 0 ?
+                    (<Spinner />) :
+                    (<div className="FullDescriptionMain">
+                        <div className="DescriptionContent">
+                            <button id="" className="btn  btn-success myBtn" onClick={() => this.onClickGotoTop()}>
+                                <i className="fa fa-arrow-up"></i>
+                            </button>
 
-                        <button id="" className="btn  btn-success myBtn" onClick={() => this.onClickGotoTop()}>
-                            <i className="fa fa-arrow-up"></i>
-                        </button>
+                            {(this.state.Data.city) ? <h4><p className="descriptionFirstPAragraph">
+                                {this.state.Data.city}
+                            </p></h4> : <></>}
 
-                        <h4><p className="descriptionFirstPAragraph">
-                            {this.state.Data.city}
-                        </p></h4>
-                        
-                        <Carousel autoPlay infiniteLoop interval="3000">
-                            {
-                                 this.state.Data.LinksName.map((user) => {
-                                    return  <div key={user}><img className="image"  src={user} /> </div>
-                            })
-                            }
-                        </Carousel>
-                        
-                        <hr></hr>
-                        <span className="descriptionParagraph" id="viewinfo">
-                            {this.state.Data.PlaceTourExplaination}
-                        </span>
-                        <Link to={"/"}>
-                            <button style={{marginTop:"5%"}} className="btn btn-success">back</button>
-                        </Link>
-                    </div>
-                </div>
-                <Footer />
+                            <Carousel autoPlay infiniteLoop interval="3000">
+                                {
+                                    this.state.Data.LinksName.map((user) => {
+                                        return <div key={user} style={{backgroundColor: "black"}}><img className="image image-fluide" alt={user} src={user} /> </div>
+                                    })
+                                }
+                            </Carousel>
+
+
+                            <div className="descriptionParagraph" id="viewinfo">
+                                <h2 className="descriptionHeading" id="top">
+                                    {this.state.Data.PlaceForTour}
+                                </h2>
+                                <hr></hr>
+                                {this.state.Data.PlaceTourExplaination}
+                            </div>
+                            <div className="descriptionParagraph">
+                                <Link to={"/"}>
+                                    <button style={{ marginTop: "5%" }} className="btn btn-success">back</button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>)}
+                < Footer />
             </>
         )
     }

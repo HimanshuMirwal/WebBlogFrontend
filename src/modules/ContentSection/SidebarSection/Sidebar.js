@@ -11,8 +11,8 @@ export default class Sidebar extends Component {
         }
         this.OnClickSideDisplay = this.OnClickSideDisplay.bind(this);
     }
-    componentDidMount(props) {
-        Axios.get("https://obscure-lake-21900.herokuapp.com/notice/getnotice/")
+    async componentDidMount(props) {
+        await Axios.get("http://localhost:5000/notice/getnotice/")
             .then((res) => {
                 console.log(res.data)
                 this.setState({
