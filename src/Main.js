@@ -13,12 +13,12 @@ function App(props) {
   // const [SubtittleFirstContent,SetSubtittleFirstContent]=useState("")
   const {tittle, subtittle} = useParams();
   useEffect(() => {
-    axios.get("http://localhost:5000/tittle/gettitle")
+    axios.get("https://obscure-lake-21900.herokuapp.com/tittle/gettitle")
       .then(data => {
         const NewData = tittle ? tittle : data.data[0].TittleName;
         setTitleValue(NewData)
         // console.log(props)
-        axios.get("http://localhost:5000/subtittle/getsubtitle")
+        axios.get("https://obscure-lake-21900.herokuapp.com/subtittle/getsubtitle")
           .then(dataSub => {
               const TempSubTitle = dataSub.data.filter(val => { if (val.TittleName === NewData) { return val.subtittleName } })
                const tempdata=subtittle?subtittle: TempSubTitle[0].subtittleName

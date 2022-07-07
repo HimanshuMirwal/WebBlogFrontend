@@ -12,7 +12,7 @@ const App = () => {
     const getDataFromAPI = async (e) => {
       const data = e.target.value;
       console.log(String.fromCharCode(e.which)); 
-      await Axios.get('http://localhost:5000/place/getplace/')
+      await Axios.get('https://obscure-lake-21900.herokuapp.com/place/getplace/')
       .then(async (res) => {
           console.log(res.data)
           await SetFullData(res.data);

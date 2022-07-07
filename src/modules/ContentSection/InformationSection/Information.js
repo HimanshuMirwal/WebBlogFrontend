@@ -36,7 +36,7 @@ export default class Information extends Component {
         this.ChangeHeightFunction = this.ChangeHeightFunction.bind(this);
     }
     async componentDidMount() {
-       await Axios.get("http://localhost:5000/place/getplace/")
+       await Axios.get("https://obscure-lake-21900.herokuapp.com/place/getplace/")
             .then((res) => {
                 console.log(res.data)
                 this.setState({

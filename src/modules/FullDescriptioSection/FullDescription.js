@@ -22,7 +22,7 @@ export default class FullDescription extends Component {
         const len = this.props.match.params.Value.length;
         const fromNotifications = this.props.match.params.Value.substring(1, len);
         console.log(fromNotifications);
-        await Axios.get("http://localhost:5000/place/getplace/:" + fromNotifications)
+        await Axios.get("https://obscure-lake-21900.herokuapp.com/place/getplace/:" + fromNotifications)
             .then(async (res) => {
                 await this.setState({
                     Data: {

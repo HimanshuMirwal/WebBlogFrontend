@@ -16,7 +16,7 @@ class App extends React.Component {
         this.myFunction = this.myFunction.bind(this);
     }
     async componentDidMount(props) {
-        await Axios.get("http://localhost:5000/tittle/gettitle/")
+        await Axios.get("https://obscure-lake-21900.herokuapp.com/tittle/gettitle/")
             .then(
                 (result) => {
                     this.setState({
@@ -28,7 +28,7 @@ class App extends React.Component {
                     console.log(error);
                 }
             )
-        await Axios.get("http://localhost:5000/subtittle/getsubtitle/")
+        await Axios.get("https://obscure-lake-21900.herokuapp.com/subtittle/getsubtitle/")
             .then((res) => {
                 console.log("subtitle", res)
                 this.setState({

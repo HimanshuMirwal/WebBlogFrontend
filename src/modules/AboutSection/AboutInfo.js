@@ -14,7 +14,7 @@ export default class AboutInfo extends React.Component {
         }
     }
     async  componentDidMount() {
-        await axios.get("http://localhost:5000/About/getabout")
+        await axios.get("https://obscure-lake-21900.herokuapp.com/About/getabout")
             .then(res => {
                 this.setState({
                     About: Parse(res.data.about),

@@ -41,7 +41,7 @@ function compile() {
 	}
 
 	// Post request to compile endpoint
-	Axios.post(`http://localhost:5000/compile`, {
+	Axios.post(`https://obscure-lake-21900.herokuapp.com/compile`, {
 	code: userCode,
 	language: userLang,
 	input: userInput }).then((res) => {
