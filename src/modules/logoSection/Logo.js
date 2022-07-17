@@ -12,7 +12,7 @@ class Logo extends React.Component {
         <div className="container-fluid">
         <div className="d-flex justify-content-start">
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
+          <i class="fa fa-bars"></i>
         </button>
         
           <a className="navbar-brand mx-2" href="/">
